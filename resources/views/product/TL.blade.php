@@ -24,7 +24,7 @@
     <div class="grid-item">
           <img class="card-img-top" src="{{ asset('upload/imageProductComplete') }}/{{ $pd->anh }}" alt="Card image cap">
           <div class="overlay">
-              <div class="text"><a href="{{route('singleProductComplete',$pd->id)}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
+              <div class="text"><a href="{{route('singleProductComplete',['id' => $pd->id, 'locale' => App::getLocale()])}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
           </div>
     </div>
   @endforeach

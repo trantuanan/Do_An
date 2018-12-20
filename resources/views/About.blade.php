@@ -6,7 +6,7 @@
 @include('layouts.slide_top')
 <div id="about-page">
 	<div id="wrapper-website">
-        <h2 align="center">VỀ CHÚNG TÔI</h2>
+        <h2 align="center">{{trans('labels.ve_chung_toi')}}</h2>
         <div class="hoso">
            <span style="font-size: 28px" align="center">Công ty TNHH Nội Thất 24H là công ty hoạt động trong lĩnh vực sản xuất và kinh doanh đồ nội thất, đồ trang trí, gia dụng trong gia đình từ năm 2018. Nội Thất 24H là thành viên của TCT Group, một tập đoàn hoạt động trong các lĩnh vực như bán lẻ, kinh doanh bất động sản, sản xuất, xuất khẩu, kinh doanh nhà hàng, khách sạn và xây dựng nội thất. Cho tới nay TCT Group đã bao gồm  gần 20 công ty thành viên với hàng loạt các chuỗi hệ thống quen thuộc như nhà hàng (PHỐ BIỂN, VẠN HOA, ĐỆ NHẤT, MAMMA MIA, HOLA, MARUTA), trung tâm thể thao (Fit24 Fitness & Yoga), siêu thị (AEON FIVIMART), siêu thị nội thất (NHÀ ĐẸP)…
            Với phương châm: “Mang đến sự hài lòng cho tất cả các khách hàng”, Nội Thất 24H không chỉ đề cao chất lượng của từng sản phẩm mà còn đặc biệt chú trọng đến các dịch vụ đi kèm như tư vấn thiết kế, vận chuyển, lắp đặt, chăm sóc khách hàng, bảo hành, bảo trì …Chúng tôi luôn mong muốn khách hàng khi đến với Nhà Đẹp sẽ có được những lợi ích tốt nhất trước và sau khi sử dụng sản phẩm của công ty.</span>

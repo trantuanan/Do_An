@@ -20,7 +20,6 @@ class PostsCategoryTableSeeder extends Seeder
             "Tin tức chung", 
             "Tin tức quảng cáo", 
             "Tin tức nổi bật",
-            "Tin Siêu Led Việt",
         );
 
         for ($i = 0; $i < 3; $i++) {

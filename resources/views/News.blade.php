@@ -31,7 +31,7 @@
                     <img src="{{ asset('upload/imagePost') }}/{{ $pt->anh }}">
                     <div class="contect-tt">
                         <p><span class="icon ion-android-time"></span> {{ $pt->updated_at }} </p>
-                        <a href="{{route('singlePost',$pt->id)}}"><h4> {{ substr(strip_tags($pt->title), 0, 40)}}{{ strlen(strip_tags($pt->title)) > 40? '...': ''}} </h4></a>
+                        <a href="{{route('singlePost',['id' => $pt->id, 'locale' => App::getLocale()])}}"><h4> {{ substr(strip_tags($pt->title), 0, 40)}}{{ strlen(strip_tags($pt->title)) > 40? '...': ''}} </h4></a>
                         <p>{{ substr(strip_tags($pt->mota), 0, 70)}}{{ strlen(strip_tags($pt->mota)) > 70? '...': ''}}</p>
                     </div>
                 </div>

@@ -11,15 +11,34 @@ use App\Models\CategoryPost;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function postChangeLanguage() 
     {
+        $rules = [
+        'language' => 'in:en,fr' //list of supported languages of your application.
+        ];
+        
+        $language = Input::get('lang'); //lang is name of form select field.
+        
+        $validator = Validator::make(compact($language),$rules);
+            
+        if($validator->passes())
+        {
+                        Session::put('language',$language);
+            App::setLocale($language);
+        }
+        else
+        {/**/ }
+    }
+    public function index(Request $request, $locale)
+    {
+        app()->setLocale($locale);
         $post = new Post();
         $product = new ProductComplete();
         $cate = new CategoryProduct();
         $posts = $post->postIndex($request->all());
         $products = $product->postIndex($request->all());
         $category = $cate->postIndex($request->all());
-        return view('index', ['posts' => $posts, 'products' => $products, 'categories' => $category]);
+        return view('index', ['posts' => $posts, 'products' => $products, 'categories' => $category, 'locale' => $locale]);
     }
 
     public function singleProduct($id)
@@ -32,73 +51,82 @@ class HomeController extends Controller
         return view('pages.pageProduct', ['products' => $products, 'products_lq' => $products_lq]);
     }
 
-    public function singleProductComplete($id)
+    public function singleProductComplete($id, $locale)
     {
+         app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->getSingleProduct($id);
         foreach ($products as  $value) {
             $products_lq =  $product->postProduct_LQ($value->category_id);
         }
-        return view('pages.pageProductComplete', ['products' => $products, 'products_lq' => $products_lq]);
+        return view('pages.pageProductComplete', ['products' => $products, 'products_lq' => $products_lq, 'locale' => $locale]);
     }
 
     public function singlePost($id)
-    {
+    {   
+        app()->setLocale($locale);
         $post = new Post();
         $posts = $post->getSinglePost($id);
         foreach ($posts as  $value) {
             $posts_lq =  $post->post_LQ($value->category_id);
         }
-        return view('pages.pagePost', ['posts' => $posts, 'posts_lq' => $posts_lq]);
+        return view('pages.pagePost', ['posts' => $posts, 'posts_lq' => $posts_lq, 'locale' => $locale]);
     }
 
-    public function products(Request $request)
+    public function products(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProducts($request->all());
-        return view('product.ALL', ['products' => $products]);
+        return view('product.ALL', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsCNC(Request $request)
+    public function productsCNC(Request $request , $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsCNC($request->all());
-        return view('product.CNC', ['products' => $products]);
+        return view('product.CNC', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsLED(Request $request)
+    public function productsLED(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsLED($request->all());
-        return view('product.LED', ['products' => $products]);
+        return view('product.LED', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsGC(Request $request)
+    public function productsGC(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsGC($request->all());
-        return view('product.GC', ['products' => $products]);
+        return view('product.GC', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsTT(Request $request)
+    public function productsTT(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsTT($request->all());
-        return view('product.TT', ['products' => $products]);
+        return view('product.TT', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsTL(Request $request)
+    public function productsTL(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsTL($request->all());
-        return view('product.TL', ['products' => $products]);
+        return view('product.TL', ['products' => $products, 'locale' => $locale]);
     }
 
-    public function productsCD(Request $request)
+    public function productsCD(Request $request, $locale)
     {
+        app()->setLocale($locale);
         $product = new ProductComplete();
         $products = $product->postProductsCD($request->all());
-        return view('product.CD', ['products' => $products]);
+        return view('product.CD', ['products' => $products, 'locale' => $locale]);
     }
 
     public function news(Request $request)
@@ -109,6 +137,7 @@ class HomeController extends Controller
         $categories = $category->getList();
         return view('News', ['posts' => $posts, 'categories' => $categories]);
     }
+
 
     public function servicesLED(Request $request)
     {
@@ -184,7 +213,7 @@ class HomeController extends Controller
             return view('search.products', ['products' => $products]);
         } else {
             return view('search.products');
-        }
+        } 
         
     }
 

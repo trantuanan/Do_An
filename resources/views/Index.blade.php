@@ -36,7 +36,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $ct->name }}</h5>
                             <p class="card-text">{{ substr(strip_tags($ct->mota), 0, 70)}}{{ strlen(strip_tags($ct->mota)) > 70? '...': ''}}</p>
-                            <a href="/services" class="btn btn-outline-primary"><span class="ion-arrow-right-b"></span> Xem chi tiết</a>
+                            <a href="/services/CNC" class="btn btn-outline-primary"><span class="ion-arrow-right-b"></span> Xem chi tiết</a>
                             </div>
                         </div>
                 </div>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div id="product">
+   <div id="product">
         <div id="wrapper-website">
             <h2 align="center">DỰ ÁN TIÊU BIỂU</h2>
             <div class="grid" data-liffect="flipInY">
@@ -55,13 +55,13 @@
                   <div class="grid-item">
                         <img class="card-img-top" src="{{ asset('upload/imageProductComplete') }}/{{ $pd->anh }}" alt="Card image cap">
                         <div class="overlay">
-                            <div class="text"><a href="{{route('singleProductComplete',$pd->id)}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
+                            <div class="text"><a href="{{route('singleProductComplete',['id' => $pd->id, 'locale' => App::getLocale()])}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
                         </div>
                   </div>
                 @endforeach
             </div>
             <div class="button-text-product">
-                <button onclick="javascript:location.href='/product'" type="button" class="btn btn-outline-info" >Xem thêm dự án</button>
+                <button onclick="javascript:location.href='/products'" type="button" class="btn btn-outline-info" >Xem thêm dự án</button>
             </div>   
         </div>
     </div>
@@ -76,7 +76,7 @@
                     <img src="{{ asset('upload/imagePost') }}/{{ $pt->anh }}">
                         <div class="contect-tt">
                             <p><span class="icon ion-android-time"></span> {{ $pt->updated_at }} </p>
-                            <a href="{{route('singlePost',$pt->id)}}"><h4> {{ substr(strip_tags($pt->title), 0, 40)}}{{ strlen(strip_tags($pt->title)) > 40? '...': ''}} </h4></a>
+                            <a href="{{route('singlePost',['id' => $pt->id, 'locale' => App::getLocale()])}}"><h4> {{ substr(strip_tags($pt->title), 0, 40)}}{{ strlen(strip_tags($pt->title)) > 40? '...': ''}} </h4></a>
                             <p>{{ substr(strip_tags($pt->mota), 0, 70)}}{{ strlen(strip_tags($pt->mota)) > 70? '...': ''}}</p>
                         </div>
                 </div>
