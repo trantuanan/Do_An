@@ -19,10 +19,11 @@
         </div>
     </div>   
 </div>
-<div class="grid">
+<div class="product-list" data-liffect="flipInY">
   @foreach($products as $pd)
-    <div class="grid-item">
-          <img class="card-img-top" src="{{ asset('upload/imageProductComplete') }}/{{ $pd->anh }}" alt="Card image cap">
+    <div  class="product-detail">
+          <div class="fix-img card-img-top" style="background-image: url({{ asset('upload/imageProductComplete') }}/{{ $pd->anh }});">
+          </div>
           <div class="overlay">
               <div class="text"><a href="{{route('singleProductComplete',['id' => $pd->id, 'locale' => App::getLocale()])}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
           </div>

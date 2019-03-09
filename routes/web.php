@@ -11,40 +11,56 @@
 |
 */
 
-Route::get('setlocale/{locale}', function ($locale) {
-  if (in_array($locale, \Config::get('app.locales'))) {
-    Session::put('locale', $locale);
-  }
-  return redirect()->back();
-});
-Route::group(['prefix' => '/{locale}'], function() {
+// Route::get('setlocale/{locale}', function ($locale) {
+//   if (in_array($locale, \Config::get('app.locales'))) {
+//     Session::put('locale', $locale);
+//   }
+//   return redirect()->back();
+// });
+// Route::group(['prefix' => '/{locale}'], function() {
     
+//     Route::get('/', 'HomeController@index')->name('home');
+//     Route::get('/service/{id}', 'HomeController@singleProduct')->name('singleProduct');
+//     Route::get('/product/{id}', 'HomeController@singleProductComplete')->name('singleProductComplete');
+//     Route::get('/About/', function ($locale) {
+//             App::setLocale($locale);
+
+//         return view('About');
+//     })->name('About');
+//     Route::get('/Contact/', function ($locale) {
+//         App::setLocale($locale);
+//         return view('Contact');
+//     })->name('contact');
+
+//     Route::get('/post/{id}', 'HomeController@singlePost')->name('singlePost');
+
+    
+// Route::group(['prefix' => '/products'], function() {
+//     Route::get('/', 'HomeController@products')->name('products');
+//     Route::get('/CNC', 'HomeController@productsCNC')->name('products.CNC');
+//     Route::get('/LED', 'HomeController@productsLED')->name('products.LED');
+//     Route::get('/GC', 'HomeController@productsGC')->name('products.GC');
+//     Route::get('/TT', 'HomeController@productsTT')->name('products.TT');
+//     Route::get('/TL', 'HomeController@productsTL')->name('products.TL');
+//     Route::get('/CD', 'HomeController@productsCD')->name('products.CD');
+// });
+
+// });
+
+
+Route::get('/About', function () {
+    return view('About');
+});
+
+Route::get('/Contact', function () {
+    return view('Contact');
+})->name('contact');
+
+Route::group(['prefix' => '/'], function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/service/{id}', 'HomeController@singleProduct')->name('singleProduct');
     Route::get('/product/{id}', 'HomeController@singleProductComplete')->name('singleProductComplete');
-    Route::get('/About/', function ($locale) {
-            App::setLocale($locale);
-
-        return view('About');
-    })->name('About');
-    Route::get('/Contact/', function ($locale) {
-        App::setLocale($locale);
-        return view('Contact');
-    })->name('contact');
-
     Route::get('/post/{id}', 'HomeController@singlePost')->name('singlePost');
-
-    
-Route::group(['prefix' => '/products'], function() {
-    Route::get('/', 'HomeController@products')->name('products');
-    Route::get('/CNC', 'HomeController@productsCNC')->name('products.CNC');
-    Route::get('/LED', 'HomeController@productsLED')->name('products.LED');
-    Route::get('/GC', 'HomeController@productsGC')->name('products.GC');
-    Route::get('/TT', 'HomeController@productsTT')->name('products.TT');
-    Route::get('/TL', 'HomeController@productsTL')->name('products.TL');
-    Route::get('/CD', 'HomeController@productsCD')->name('products.CD');
-});
-
 });
 
 Route::group(['prefix' => '/cart'], function() {

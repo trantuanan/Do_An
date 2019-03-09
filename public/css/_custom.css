@@ -1,4 +1,4 @@
-/***Layout***/
+**Layout***/
 
 #container {
     width: 100%;
@@ -1564,4 +1564,30 @@ tbody .img_table img {
 }
 /*print invoice*/
 
-/***End backend***/
+.fix-img {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+}
+/*.fix-img img {
+  max-width: 100%;
+  object-fit: cover;
+}*/
+
+.product-detail {
+  width: 19%;
+  display: inline-flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.product-detail:hover > .overlay {
+  height: 35px;
+}
+
+.product-list {
+  display: block;
+}
+/***End backend**

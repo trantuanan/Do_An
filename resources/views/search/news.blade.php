@@ -3,7 +3,13 @@
 @section('content-1')
 <h3 class="td_product form-group"> Tin tức </h3>
 <div class="products_all row">
+
+{{--       @php
+    dd('dfdsfsd');
+    @endphp --}}
+
   @if(isset($posts))
+
     @foreach($posts as $pt)
     <div class="col-md-3 News-item">
         <img src="{{ asset('upload/imagePost') }}/{{ $pt->anh }}">

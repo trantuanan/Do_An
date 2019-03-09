@@ -1,3 +1,13 @@
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?6NooTzLe5duG6966QAAG9MvTzEX2x2OA";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->
+
 <div id="header">
     <div class="navbar-info">
       <div id="wrapper-website">
@@ -28,12 +38,9 @@
         <div class="row" >
         <a class="navbar-brand col-md-2" href="/"><img src="{{ asset('upload/img/logo.png') }}" id="logo-top" alt="logo công ty"></a>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">  
+          <ul class="navbar-nav mr-auto"> 
             <li class="nav-item">
-              <a class="nav-link" href="{{route('home',['locale' => App::getLocale()])}}">Trang chủ</a>
-             <a href="{!! route(Route::currentRouteName(),['locale' => "en"]) !!}">English</a>
-              <a href="{!! route(Route::currentRouteName(),['locale' => "vi"]) !!}">Vietnam</a>
-               <a href="{!! route(Route::currentRouteName(),['locale' => "jp"]) !!}">Japanese</a>              
+              <a class="nav-link" href="/">Trang chủ</a>
             </li>          
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="/product" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -66,7 +73,7 @@
               <a class="nav-link" href="{{route('news')}}">Tin tức</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('About',['locale' => App::getLocale()])}}">Giới thiệu</a>
+              <a class="nav-link" href="/About">Giới thiệu</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Contact">Liên hệ</a>

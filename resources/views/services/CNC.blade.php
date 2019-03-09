@@ -24,7 +24,7 @@
           <option value="3"> Tên: A > Z </option>
           <option value="4"> Tên: A < Z </option>
           <option value="5"> Giá: thấp > cao </option>
-          <option value="6"> Giá: thấp < cao </option>
+          <option value="6"> Giá: cao > thấp </option>
         </select>
         <form action="{{route('services.CNC')}}" method="GET" id="order_products">
             <input type="hidden" value="" name="name" id="name_product_oderby">

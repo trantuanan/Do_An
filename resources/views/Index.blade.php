@@ -49,6 +49,26 @@
    <div id="product">
         <div id="wrapper-website">
             <h2 align="center">DỰ ÁN TIÊU BIỂU</h2>
+            <div class="product-list"  data-liffect="flipInY">
+              <!-- do not use banner in Masonry layout -->
+                @foreach($products as $pd)
+                  <div class="product-detail">
+                    <div class="fix-img card-img-top" style="background-image: url({{ asset('upload/imageProductComplete') }}/{{ $pd->anh }});">
+                        {{-- <img class="card-img-top" src="{{ asset('upload/imageProductComplete') }}/{{ $pd->anh }}" alt="Card image cap">  --}}
+                    </div>
+                        <div class="overlay">
+                            <div class="text"><a href="{{route('singleProductComplete',['id' => $pd->id, 'locale' => App::getLocale()])}}">{{ substr(strip_tags($pd->name), 0, 40)}}{{ strlen(strip_tags($pd->name)) > 40? '...': ''}}</a></div>
+                        </div>
+                  </div>
+                @endforeach
+            </div>
+            <div class="button-text-product">
+                <button onclick="javascript:location.href='/products'" type="button" class="btn btn-outline-info" >Xem thêm dự án</button>
+            </div>   
+        </div> 
+
+        {{-- <div id="wrapper-website">
+            <h2 align="center">DỰ ÁN TIÊU BIỂU</h2>
             <div class="grid" data-liffect="flipInY">
               <!-- do not use banner in Masonry layout -->
                 @foreach($products as $pd)
@@ -64,7 +84,7 @@
                 <button onclick="javascript:location.href='/products'" type="button" class="btn btn-outline-info" >Xem thêm dự án</button>
             </div>   
         </div>
-    </div>
+ --}}    </div>
 
     <div id="News">
         <div id="wrapper-website">

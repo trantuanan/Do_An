@@ -13,7 +13,7 @@
                   <input type="text" class="form-control" id="timkiem" name="search" placeholder="Tìm kiếm">
                 </div>
                 <div class="form-group col-md-3">
-                  <select id="select_search" class="form-control">
+                  <select id="select_search" class="form-control" name="value_search">
                     <option value="0"> - Chọn - </option>
                     <option value="1"> Sản phẩm </option>
                     <option value="2"> Dịch vụ </option>
@@ -25,8 +25,8 @@
                 </div>
             </div>
         </form>
-        <form action="{{route('services.CD')}}" method="GET" id="select_form">
-        </form>
+{{--         <form action="{{route('services.CD')}}" method="GET" id="select_form">
+        </form --}}>
         <div class="content_timkiem">
             @yield('content-1')
         </div>
